@@ -606,3 +606,36 @@
     transition-delay: 50ms !important;
   }
 }
+/* ============================================================
+   MOBILE FIX FOR HOVER CARDS (Touch Devices)
+   ============================================================ */
+@media (max-width: 968px) {
+  /* Darken the background image and show the dark gradient overlay */
+  .service-card > img.card-bg-img { 
+    opacity: 1; 
+    filter: grayscale(1) brightness(0.4); 
+  }
+  .service-card::after { 
+    opacity: 1; 
+  }
+  
+  /* Hide the white wash overlay */
+  .card-wash { 
+    opacity: 0; 
+  }
+  
+  /* Hide the closed state content completely */
+  .card-initial { 
+    opacity: 0; 
+    pointer-events: none; 
+    display: none; 
+  }
+  
+  /* Permanently show the detailed hover content */
+  .card-hover { 
+    opacity: 1; 
+    pointer-events: auto; 
+    position: relative; 
+    height: 100%; 
+  }
+}
