@@ -1,19 +1,27 @@
 /* ============================================================
    GLOBAL & LAYOUT RESETS
    ============================================================ */
-.project-details-page,
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-overflow-scrolling: touch; 
+  overflow-x: hidden; /* Moved here to prevent horizontal scroll without breaking sticky */
+  margin: 0;
+  padding: 0;
+  background: #f5f5f5;
+}
+   .project-details-page,
 .project-details-page * {
   box-sizing: border-box;
 }
 
 .project-details-page {
-  background: #f5f5f5;
   width: 100%;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow-x: hidden;
   font-family: sans-serif;
 }
 
