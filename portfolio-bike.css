@@ -1,0 +1,474 @@
+/* ============================================================
+   GLOBAL & LAYOUT RESETS
+   ============================================================ */
+.project-details-page,
+.project-details-page * {
+  box-sizing: border-box;
+}
+
+.project-details-page {
+  background: #f5f5f5;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+  font-family: sans-serif;
+}
+
+/* ============================================================
+   NAVIGATION (Consistent with Index/Portfolio)
+   ============================================================ */
+.nav-menu {
+  display: none; 
+  width: 100% !important;
+  max-width: 1280px !important;
+  position: fixed; 
+  top: 20px; 
+  left: 50%;
+  transform: translateX(-50%) !important;
+  z-index: 9999;
+}
+.nav-menu.active {
+  display: flex;
+  flex-direction: column;
+}
+.fixed-nav-wrapper {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1280px;
+  padding: 0 20px;
+  z-index: 9998;
+  box-sizing: border-box;
+}
+.nav-bar {
+  background: #fdfdfd;
+  border-radius: 20px;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; 
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  backdrop-filter: blur(16px) saturate(120%);
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.35);
+}
+.nav-menu .nav-bar {
+  border-radius: 20px 20px 0px 0px;
+}
+.frame-178, .frame-177 {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.logo {
+  height: 35px;
+  display: flex;
+  align-items: center;
+}
+.logo .group {
+  height: 100%;
+}
+.frame-72 {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: center;
+  justify-content: flex-start;
+}
+.button, .button2 {
+  background: #181818;
+  border-radius: 20px;
+  padding: 16px 30px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 4px 4px 1px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.button:hover, .button2:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+.get-in-touch, .get-in-touch-btn {
+  color: #fdfdfd;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 600;
+}
+.frame-40 {
+  background: rgba(255, 70, 50, 0.9);
+  border-radius: 0px 0px 20px 20px;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+}
+.frame-21 {
+  background: #f6f6f6;
+  border-radius: 10px;
+  border: 0.5px solid rgba(70, 70, 70, 0.4);
+  padding: 0px 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+}
+.search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none; 
+  color: #181818;
+  font-size: 20px;
+}
+.frame-73 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; 
+  gap: 40px; 
+  align-items: center; 
+  justify-content: center;
+  width: 100%;
+}
+.menu-link {
+  font-size: 32px;
+  color: #fdfdfd; 
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+.menu-link:hover { opacity: 0.7; }
+
+/* ============================================================
+   MOBILE NAVIGATION CONTROLS
+   ============================================================ */
+@media (max-width: 768px) {
+  /* 1. Control the overall Nav Bar container */
+  .nav-bar {
+    padding: 12px 20px !important; /* Reduces the outer padding */
+    border-radius: 16px; /* Slightly less rounded on mobile */
+  }
+
+  /* 2. Control the Logo */
+  .logo {
+    height: 26px !important; /* Scale down the logo height */
+  }
+
+  /* 3. Control the gap between the Button and the Icons */
+  .frame-72 {
+    gap: 12px !important; /* Brings the button and menu icon closer */
+  }
+
+  /* 4. Control the "Get in touch" Button */
+  .button2 {
+    padding: 10px 16px !important; /* Smaller button padding */
+    border-radius: 12px !important;
+  }
+  .get-in-touch2 {
+    font-size: 14px !important; /* Smaller text inside the button */
+    line-height: 1.2 !important;
+  }
+
+  /* 5. Control the Menu Hamburger/Close Icons */
+  .icons, .icons3, #openMenuBtn, #closeMenuBtn {
+    width: 24px !important; /* Adjust the width of the menu icon */
+    height: 24px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Optional: Hide decorative elements on mobile to save space */
+  .frame-19 {
+    display: none !important; /* Hides the extra spacer icon if it takes up too much room */
+  }
+}
+
+/* For extremely small phones (like iPhone SE) */
+@media (max-width: 400px) {
+  .logo {
+    height: 22px !important; /* Even smaller logo */
+  }
+  .button2 {
+    padding: 8px 12px !important;
+  }
+  .get-in-touch2 {
+    font-size: 12px !important;
+  }
+  .frame-72 {
+    gap: 8px !important;
+  }
+}
+
+/* ============================================================
+   PROJECT DETAILS LAYOUT
+   ============================================================ */
+.project-content {
+  padding: 160px 20px 80px 20px; /* Padding top clears the sticky nav */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.project-container {
+  width: 100%;
+  max-width: 1120px; /* Matches the hero image width from your original code */
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+/* Hero Image */
+.project-hero-image {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #e9e9e9; /* Placeholder color in case image loads slow */
+}
+.main-img {
+  width: 100%;
+  height: auto;
+  max-height: 650px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Info Section (Header & Text) */
+.project-info {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.project-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+.header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.case-study-label {
+  color: #000000;
+  font-family: "Montserrat-Medium", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+.project-title {
+  color: #181818;
+  font-family: "Montserrat-Bold", sans-serif;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.2;
+  font-weight: 700;
+}
+.project-tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.tag {
+  background: #c0c2f5;
+  border: 1px solid rgba(105, 110, 240, 0.4);
+  border-radius: 20px;
+  padding: 6px 16px;
+  color: #696ef0;
+  font-family: "Montserrat-Medium", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Right Header (Client Badge) */
+.client-badge {
+  background: #02066f;
+  color: #ffffff;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Description Text */
+.project-description {
+  color: #181818;
+  font-family: "BeautifullyDeliciousSans-Regular", sans-serif;
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.6;
+  font-weight: 400;
+  max-width: 900px;
+}
+
+/* ============================================================
+   PROJECT GALLERY GRID
+   ============================================================ */
+.project-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+.gallery-full {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.gallery-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.gallery-half {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Responsive adjust for Gallery & Header */
+@media (max-width: 768px) {
+  .project-header {
+    flex-direction: column;
+  }
+  .client-badge {
+    margin-top: 10px;
+  }
+  .gallery-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   CTA SECTION
+   ============================================================ */
+.get-in-touch-section {
+  padding: 100px 20px; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  width: 100%;
+}
+.frame-29 {
+  background: #ff4632; 
+  border-radius: 20px; 
+  padding: 60px 40px;
+  max-width: 1000px; 
+  width: 100%; 
+  text-align: center;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 24px;
+}
+.ready-to-build-something-exceptional { 
+  color: #fff; 
+  font-family: "Montserrat-Bold", sans-serif; 
+  font-size: clamp(32px, 4vw, 48px); 
+}
+.let-s-turn-your-complex-challenges-into-market-ready-products-reach-out-to-our-design-and-engineering-team-to-start-the-conversation {
+  color: #fff; 
+  font-size: 20px; 
+  line-height: 1.5;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background: linear-gradient(180deg, #181818 69%, #7e7e7e 100%);
+  padding: 80px 20px 40px 20px;
+  display: flex; justify-content: center;
+}
+.footer-container {
+  width: 100%; max-width: 1280px; display: flex; flex-direction: column; gap: 60px;
+}
+/* Stack the Navigate section (Heading + Links) vertically */
+.frame-84 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px; 
+}
+
+/* Stack the actual navigation links vertically */
+.frame-82 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; 
+}
+
+/* Override the old bottom margin since flex 'gap' handles spacing now */
+.frame-82 .footer-link {
+  margin-bottom: 0;
+}
+.frame-89 {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; width: 100%;
+}
+.logo2 img { max-width: 200px; }
+.logo-2 {
+  padding: 0px 5px 0px 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  height: 67.95px;
+  position: relative;
+}
+.navigate, .follow, .location, .for-inquiries { color: rgba(255,255,255,0.7); font-weight: 600; margin-bottom: 16px; font-size: 18px; }
+.footer-link { color: #fff; font-size: 16px; margin-bottom: 10px; cursor: pointer; }
+.footer-link:hover { opacity: 0.7; }
+.frame-87, .frame-88, .frame-822, .frame-83 { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.frame-832 { display: flex; align-items: center; gap: 10px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 20px; }
+._2026-inovo-industrial-design-development { color: rgba(255,255,255,0.6); font-size: 14px; }
+
+/* ============================================================
+   ANIMATIONS & EFFECTS
+   ============================================================ */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: opacity, transform;
+}
+.reveal-active {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+
+@media (max-width: 768px) {
+  .delay-100, .delay-200 {
+    transition-delay: 50ms !important;
+  }
+}

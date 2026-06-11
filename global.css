@@ -1,0 +1,59 @@
+/* ==========================================
+   THE "NUCLEAR" FONT OVERRIDE
+   ========================================== */
+@font-face {
+    font-family: "BeautifullyDeliciousSans-Regular";
+    src: url("fonts/BDSans-Regular.otf") format("opentype"),
+         url("fonts/BeautifullyDeliciousSans-Regular.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Montserrat";
+    src: url("fonts/Montserrat-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Montserrat";
+    src: url("fonts/Montserrat-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Montserrat";
+    src: url("fonts/Montserrat-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Montserrat";
+    src: url("fonts/Montserrat-Black.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+}
+
+* {
+    font-family: "BeautifullyDeliciousSans-Regular", sans-serif !important;
+}
+
+h1, h2, h3, b, .explore-our-services, .see-all-works, 
+.innovation-engineered-into-reality-span, .innovation-engineered-into-reality-span2, .designing-the-future-through, .innovation, 
+.the-world-belongs-to-those-who-create, .projects, .awards, .patents, .years, .ready-to-build-something-exceptional,
+.the-art, .of-innovation, .navigate, .home, .services, .portfolio, .about-us, .contact-us, .search-input, .menu-link, .location,.follow, .navigate, .for-inquiries,.designing-the-future-through,
+._01, ._02, ._03, ._04, .who-are-we, ._20, ._120, ._5, ._4, .luxury-indoor-bike, .park-golf-club, .inovo-works {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+/* Protect images from being easily dragged or right-clicked */
+img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    -webkit-user-drag: none;
+    pointer-events: none; /* Prevents right-click menu on the image itself */
+}
+
+/* Re-enable pointer events ONLY for clickable images/icons (like menu toggles or social links) */
+a img, .icons img, .icons2 img, .icons3 img, .logo img, .nav-bar img, .hover-icon, .icon, .icon2, .icon3, .icon4, .icon5, .icon6 {
+    pointer-events: auto;
+}

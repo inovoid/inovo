@@ -1,0 +1,613 @@
+/* ============================================================
+   GLOBAL & LAYOUT RESETS
+   ============================================================ */
+.contact-page,
+.contact-page * {
+  box-sizing: border-box;
+}
+
+.contact-page {
+  background: #f5f5f5;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+  font-family: sans-serif;
+}
+
+/* ============================================================
+   NAVIGATION (Matches Index & Portfolio)
+   ============================================================ */
+.nav-menu {
+  display: none; 
+  width: 100% !important;
+  max-width: 1280px !important;
+  position: fixed; 
+  top: 20px; 
+  left: 50%;
+  transform: translateX(-50%) !important;
+  z-index: 9999;
+}
+.nav-menu.active {
+  display: flex;
+  flex-direction: column;
+}
+.fixed-nav-wrapper {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1280px;
+  padding: 0 20px;
+  z-index: 9998;
+  box-sizing: border-box;
+}
+.nav-bar {
+  background: #fdfdfd;
+  border-radius: 20px;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; 
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  backdrop-filter: blur(16px) saturate(120%);
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.35);
+}
+.nav-menu .nav-bar {
+  border-radius: 20px 20px 0px 0px;
+}
+.frame-178, .frame-177 {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.logo {
+  height: 35px;
+  display: flex;
+  align-items: center;
+}
+.logo .group {
+  height: 100%;
+}
+.frame-72 {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: center;
+  justify-content: flex-start;
+}
+.button, .button2 {
+  background: #181818;
+  border-radius: 20px;
+  padding: 16px 30px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 4px 4px 1px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.button:hover, .button2:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+.get-in-touch, .get-in-touch2 {
+  color: #fdfdfd;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 600;
+}
+.frame-40 {
+  background: rgba(255, 70, 50, 0.9);
+  border-radius: 0px 0px 20px 20px;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+}
+.frame-21 {
+  background: #f6f6f6;
+  border-radius: 10px;
+  border: 0.5px solid rgba(70, 70, 70, 0.4);
+  padding: 0px 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+}
+.search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none; 
+  color: #181818;
+  font-size: 20px;
+}
+.frame-73 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; 
+  gap: 40px; 
+  align-items: center; 
+  justify-content: center;
+  width: 100%;
+}
+.menu-link {
+  font-size: 32px;
+  color: #fdfdfd; 
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+.menu-link:hover { opacity: 0.7; }
+
+/* ============================================================
+   MOBILE NAVIGATION CONTROLS
+   ============================================================ */
+@media (max-width: 768px) {
+  /* 1. Control the overall Nav Bar container */
+  .nav-bar {
+    padding: 12px 20px !important; /* Reduces the outer padding */
+    border-radius: 16px; /* Slightly less rounded on mobile */
+  }
+
+  /* 2. Control the Logo */
+  .logo {
+    height: 26px !important; /* Scale down the logo height */
+  }
+
+  /* 3. Control the gap between the Button and the Icons */
+  .frame-72 {
+    gap: 12px !important; /* Brings the button and menu icon closer */
+  }
+
+  /* 4. Control the "Get in touch" Button */
+  .button2 {
+    padding: 10px 16px !important; /* Smaller button padding */
+    border-radius: 12px !important;
+  }
+  .get-in-touch2 {
+    font-size: 14px !important; /* Smaller text inside the button */
+    line-height: 1.2 !important;
+  }
+
+  /* 5. Control the Menu Hamburger/Close Icons */
+  .icons, .icons3, #openMenuBtn, #closeMenuBtn {
+    width: 24px !important; /* Adjust the width of the menu icon */
+    height: 24px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Optional: Hide decorative elements on mobile to save space */
+  .frame-19 {
+    display: none !important; /* Hides the extra spacer icon if it takes up too much room */
+  }
+}
+
+/* For extremely small phones (like iPhone SE) */
+@media (max-width: 400px) {
+  .logo {
+    height: 22px !important; /* Even smaller logo */
+  }
+  .button2 {
+    padding: 8px 12px !important;
+  }
+  .get-in-touch2 {
+    font-size: 12px !important;
+  }
+  .frame-72 {
+    gap: 8px !important;
+  }
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.contact-hero {
+  position: relative;
+  width: 100%;
+  min-height: 65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 160px 20px 80px 20px;
+}
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  z-index: 2;
+}
+.pill-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  padding: 10px 24px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.red-dot {
+  width: 12px;
+  height: 12px;
+  background: #ff4632;
+  border-radius: 50%;
+}
+.let-s-work-together {
+  color: #ffffff;
+  font-family: "Montserrat-Bold", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+.let-s-build-something-meaningful {
+  color: #fdfdfd;
+  font-family: "Montserrat-ExtraBold", sans-serif;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.1;
+  font-weight: 800;
+  max-width: 800px;
+}
+.turn-your-vision-into-reality {
+  color: #fdfdfd;
+  font-family: "BeautifullyDeliciousSans-Regular", sans-serif;
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+/* ============================================================
+   MAIN CONTACT GRID (INFO + FORM)
+   ============================================================ */
+.contact-main-section {
+  padding: 100px 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.contact-container {
+  width: 100%;
+  max-width: 1280px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* Left Column: Contact Info */
+.contact-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: sticky;
+  top: 140px;
+}
+.get-in-touch-with-us {
+  color: #000000;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 600;
+  line-height: 1.2;
+}
+.we-d-love-to-hear {
+  color: #7f7a7a;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 20px;
+  line-height: 1.6;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.contact-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.decorative-pill {
+  width: 8px;
+  height: 60px;
+  background: rgba(255, 70, 50, 0.77);
+  border-radius: 50px;
+}
+.detail-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.detail-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+.detail-text {
+  color: #7f7a7a;
+  font-family: "BeautifullyDeliciousSans-Bold", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+a.detail-text:hover {
+  color: #ff4632;
+}
+
+/* Right Column: Contact Form */
+.contact-form-col {
+  background: transparent;
+}
+.inovo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.form-label {
+  color: #000000;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+.input-wrapper, .phone-input-wrapper {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid transparent;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.input-wrapper:focus-within, .phone-input-wrapper:focus-within {
+  border-color: #ff4632;
+  box-shadow: 0px 4px 16px rgba(255, 70, 50, 0.15);
+}
+.form-input {
+  flex: 1;
+  width: 100%;
+  padding: 18px 20px;
+  color: #181818;
+  font-family: "Montserrat-Regular", sans-serif;
+  font-size: 16px;
+  background: transparent;
+  outline: none;
+}
+.form-input::placeholder {
+  color: #a0a0a0;
+}
+
+/* Dropdowns & Textarea Specifics */
+.custom-select {
+  cursor: pointer;
+  appearance: none;
+  background: url('data:image/svg+xml;utf8,<svg fill="%237f7a7a" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 16px center;
+}
+.text-area-wrapper {
+  align-items: flex-start;
+}
+.form-textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* Phone Layout */
+.phone-input-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.country-select {
+  padding: 18px 10px 18px 20px;
+  background: #f9f9f9;
+  border: none;
+  border-right: 1px solid #eee;
+  color: #181818;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 16px;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Checkbox Group */
+.checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 10px;
+}
+.checkbox-group input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  accent-color: #ff4632;
+  cursor: pointer;
+}
+.checkbox-label {
+  color: #000000;
+  font-family: "Montserrat-Regular", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.checkbox-label strong {
+  font-family: "Montserrat-SemiBold", sans-serif;
+}
+
+/* Submit Button */
+.submit-btn {
+  background: #181818;
+  color: #ffffff;
+  border-radius: 20px;
+  padding: 20px 40px;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 2px 4px 4px 1px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  width: fit-content;
+  margin-top: 10px;
+}
+.submit-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* Responsive adjust for Grid */
+@media (max-width: 968px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  .contact-info-col {
+    position: relative;
+    top: 0;
+  }
+  .contact-details-list {
+    gap: 24px;
+  }
+  .decorative-pill {
+    height: 40px;
+  }
+}
+@media (max-width: 480px) {
+  .phone-input-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .country-select {
+    border-right: none;
+    border-bottom: 1px solid #eee;
+  }
+}
+
+
+/* ============================================================
+   FOOTER (Match Index)
+   ============================================================ */
+.footer {
+  background: linear-gradient(180deg, #181818 69%, #7e7e7e 100%);
+  padding: 80px 20px 40px 20px;
+  display: flex; 
+  justify-content: center;
+  width: 100%;
+}
+.footer-container {
+  width: 100%; 
+  max-width: 1280px; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 60px;
+}
+/* Stack the Navigate section (Heading + Links) vertically */
+.frame-84 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px; 
+}
+
+/* Stack the actual navigation links vertically */
+.frame-82 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; 
+}
+
+/* Override the old bottom margin since flex 'gap' handles spacing now */
+.frame-82 .footer-link {
+  margin-bottom: 0;
+}
+.frame-89 {
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: space-between; 
+  gap: 40px; 
+  width: 100%;
+}
+.logo2 img { max-width: 200px; }
+.logo-2 {
+  padding: 0px 5px 0px 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  height: 67.95px;
+  position: relative;
+}
+.navigate, .follow, .location, .for-inquiries { 
+  color: rgba(255,255,255,0.7); 
+  font-weight: 600; 
+  margin-bottom: 16px; 
+  font-size: 18px; 
+}
+.footer-link { 
+  color: #fff; 
+  font-size: 16px; 
+  margin-bottom: 10px; 
+  cursor: pointer; 
+  text-decoration: none;
+  display: inline-block;
+}
+.footer-link:hover { opacity: 0.7; }
+.frame-87, .frame-88, .frame-822, .frame-83 { 
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+  margin-bottom: 12px; 
+}
+.frame-832 { 
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+  border-top: 1px solid rgba(255,255,255,0.2); 
+  padding-top: 20px; 
+}
+._2026-inovo-industrial-design-development { 
+  color: rgba(255,255,255,0.6); 
+  font-size: 14px; 
+}
+
+/* ============================================================
+   ANIMATIONS & EFFECTS
+   ============================================================ */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: opacity, transform;
+}
+.reveal-active {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }

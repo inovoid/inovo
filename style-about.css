@@ -1,0 +1,643 @@
+/* ============================================================
+   GLOBAL & LAYOUT RESETS
+   ============================================================ */
+.about-page,
+.about-page * {
+  box-sizing: border-box;
+}
+
+.about-page {
+  background: #f5f5f5;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  /* CRITICAL: Removed overflow-x: hidden to prevent breaking position: sticky */
+  font-family: sans-serif;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+.hero-title, .section-title, .responsibility-title, .cta-title, .card-hover-title {
+  font-family: "Montserrat-Bold", sans-serif !important;
+  font-weight: 700;
+}
+
+.hero-subtitle, .section-subtitle, .responsibility-subtitle, .cta-subtitle, .card-hover-text {
+  font-family: "BeautifullyDeliciousSans-Regular", sans-serif !important;
+  font-weight: 400;
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.nav-menu {
+  display: none; 
+  width: 100% !important;
+  max-width: 1280px !important;
+  position: fixed; 
+  top: 20px; 
+  left: 50%;
+  transform: translateX(-50%) !important;
+  z-index: 9999;
+}
+.nav-menu.active {
+  display: flex;
+  flex-direction: column;
+}
+.fixed-nav-wrapper {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1280px;
+  padding: 0 20px;
+  z-index: 9998;
+  box-sizing: border-box;
+}
+.nav-bar {
+  background: #fdfdfd;
+  border-radius: 20px;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; 
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  backdrop-filter: blur(16px) saturate(120%);
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.35);
+}
+.nav-menu .nav-bar { border-radius: 20px 20px 0px 0px; }
+.frame-178, .frame-177 { display: flex; flex-direction: row; gap: 10px; align-items: flex-start; justify-content: flex-start; }
+.logo { height: 35px; display: flex; align-items: center; }
+.logo .group { height: 100%; }
+.frame-72 { display: flex; flex-direction: row; gap: 30px; align-items: center; justify-content: flex-start; }
+.button2 {
+  background: #181818; border-radius: 20px; padding: 16px 30px; display: flex; flex-direction: row;
+  gap: 10px; align-items: center; justify-content: center; box-shadow: 2px 4px 4px 1px rgba(0, 0, 0, 0.3);
+  cursor: pointer; text-decoration: none; transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.button2:hover { transform: translateY(-2px); opacity: 0.9; }
+.get-in-touch2 { color: #fdfdfd; font-family: "Montserrat-SemiBold", sans-serif; font-size: 20px; line-height: 26px; font-weight: 600; }
+.frame-19 { display: flex; flex-direction: row; gap: 10px; align-items: center; justify-content: flex-start; }
+.icons { display: flex; flex-direction: row; gap: 10px; align-items: center; justify-content: flex-start; }
+.frame-40 {
+  background: rgba(255, 70, 50, 0.9); border-radius: 0px 0px 20px 20px; padding: 40px 30px;
+  display: flex; flex-direction: column; gap: 40px; align-items: flex-start; width: 100%; box-sizing: border-box;
+}
+.frame-21 {
+  background: #f6f6f6; border-radius: 10px; border: 0.5px solid rgba(70, 70, 70, 0.4); padding: 0px 10px;
+  display: flex; flex-direction: row; gap: 10px; align-items: center; width: 100%; height: 60px;
+}
+.search-input { flex: 1; background: transparent; border: none; outline: none; color: #181818; font-size: 20px; }
+.frame-73 { display: flex; flex-direction: row; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: center; width: 100%; }
+.menu-link { font-size: 32px; color: #fdfdfd; font-weight: 500; cursor: pointer; text-decoration: none; transition: opacity 0.2s ease; }
+.menu-link:hover { opacity: 0.7; }
+
+/* ============================================================
+   MOBILE NAVIGATION CONTROLS
+   ============================================================ */
+@media (max-width: 768px) {
+  /* 1. Control the overall Nav Bar container */
+  .nav-bar {
+    padding: 12px 20px !important; /* Reduces the outer padding */
+    border-radius: 16px; /* Slightly less rounded on mobile */
+  }
+
+  /* 2. Control the Logo */
+  .logo {
+    height: 26px !important; /* Scale down the logo height */
+  }
+
+  /* 3. Control the gap between the Button and the Icons */
+  .frame-72 {
+    gap: 12px !important; /* Brings the button and menu icon closer */
+  }
+
+  /* 4. Control the "Get in touch" Button */
+  .button2 {
+    padding: 10px 16px !important; /* Smaller button padding */
+    border-radius: 12px !important;
+  }
+  .get-in-touch2 {
+    font-size: 14px !important; /* Smaller text inside the button */
+    line-height: 1.2 !important;
+  }
+
+  /* 5. Control the Menu Hamburger/Close Icons */
+  .icons, .icons3, #openMenuBtn, #closeMenuBtn {
+    width: 24px !important; /* Adjust the width of the menu icon */
+    height: 24px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Optional: Hide decorative elements on mobile to save space */
+  .frame-19 {
+    display: none !important; /* Hides the extra spacer icon if it takes up too much room */
+  }
+}
+
+/* For extremely small phones (like iPhone SE) */
+@media (max-width: 400px) {
+  .logo {
+    height: 22px !important; /* Even smaller logo */
+  }
+  .button2 {
+    padding: 8px 12px !important;
+  }
+  .get-in-touch2 {
+    font-size: 12px !important;
+  }
+  .frame-72 {
+    gap: 8px !important;
+  }
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.action-btn {
+  color: #fdfdfd;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 16px 32px;
+  border-radius: 20px;
+  box-shadow: 2px 4px 4px 1px rgba(0, 0, 0, 0.3);
+  display: inline-flex;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.action-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+.red-btn { background: #ff4632; }
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.about-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Aligns vertically to center */
+  align-items: center;     /* Aligns horizontally to center */
+  padding: 80px 20px;
+  z-index: 5;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.4) 100%);
+}
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-content-wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers children items */
+  text-align: center;  /* Centers the text */
+  gap: 24px;
+}
+.hero-title {
+  color: rgba(253, 253, 253, 0.95);
+  font-size: clamp(40px, 6vw, 80px);
+  line-height: 1.1;
+  max-width: 800px;
+}
+.hero-subtitle {
+  color: rgba(220, 220, 220, 0.9);
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+/* ============================================================
+   STICKY SCROLL SECTION
+   ============================================================ */
+.process-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; /* Required for sticky to work cleanly in Flexbox */
+  position: relative;
+  background: #ffffff;
+  width: 100%;
+}
+
+/* Left Sticky Side */
+.sticky-left {
+  position: sticky;
+  top: 0;
+  width: 50%;
+  height: 100vh;
+  background: #000;
+  overflow: hidden; /* Prevent child images from bleeding out */
+}
+
+/* Stacking all 3 images */
+.sticky-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0; 
+  transition: opacity 0.6s ease-in-out;
+  z-index: 1;
+}
+.sticky-image.active {
+  opacity: 1; 
+  z-index: 2;
+}
+
+/* Dark overlay so text is readable */
+.sticky-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.sticky-label {
+  position: absolute;
+  bottom: 60px;
+  left: 60px;
+  color: #ff4632;
+  font-family: "Montserrat-Bold", sans-serif;
+  font-size: clamp(40px, 5vw, 70px);
+  line-height: 0.9;
+  z-index: 10;
+}
+.sticky-label span {
+  display: block;
+  font-family: "Montserrat-Medium", sans-serif;
+  font-size: clamp(18px, 2vw, 26px);
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 8px;
+}
+
+/* Right Scroll Side */
+.scroll-right {
+  width: 50%;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+.content-block {
+  height: 100vh; /* Make each block take full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 10%;
+}
+.text-content {
+  max-width: 500px;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.text-content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.content-label {
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 14px;
+  letter-spacing: 3px;
+  margin-bottom: 24px;
+  display: block;
+  text-transform: uppercase;
+  color: #181818;
+}
+.text-content .section-title {
+  color: #181818;
+  font-size: clamp(36px, 4.5vw, 52px);
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+.innovation-blue { color: #02066f; }
+.text-content .section-subtitle {
+  color: #464646;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  transition: gap 0.2s ease;
+  border-bottom: 2px solid;
+  padding-bottom: 4px;
+}
+.text-link:hover { gap: 12px; }
+.text-link::after { content: "→"; font-size: 18px; transition: transform 0.2s; }
+.text-link:hover::after { transform: translateX(4px); }
+.explore-services-link { color: #ff4632; border-bottom-color: #ff4632; }
+.default-link { color: #ff4632; border-bottom-color: #ff4632; }
+
+/* Responsive adjustments for sticky scroll */
+@media (max-width: 968px) {
+  .process-wrapper { flex-direction: column; }
+  .sticky-left { position: relative; width: 100%; height: 50vh; top: 0; }
+  .scroll-right { width: 100%; }
+  .content-block { height: auto; min-height: 60vh; padding: 60px 20px; justify-content: center; }
+  .text-content { max-width: 100%; text-align: center; }
+  .sticky-label { left: 20px; bottom: 30px; }
+}
+
+/* ============================================================
+   RESPONSIBILITY SECTION
+   ============================================================ */
+.responsibility-section {
+  background: rgba(245, 245, 245, 0.5);
+  width: 100%;
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+}
+.responsibility-container {
+  width: 100%;
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+.responsibility-title {
+  color: #181818;
+  font-size: clamp(32px, 4vw, 48px);
+}
+.responsibility-subtitle {
+  color: #464646;
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.6;
+  max-width: 900px;
+  margin-bottom: 60px;
+}
+.human-impact-blue { color: #02066f; font-family: "Montserrat-Bold", sans-serif; }
+
+/* Responsibility Cards */
+.responsibility-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+}
+.resp-card {
+  position: relative;
+  width: 250px;
+  height: clamp(400px, 50vh, 500px);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #111;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transition: width 0.4s ease, transform 0.35s ease, box-shadow 0.35s ease;
+  flex-shrink: 0;
+}
+.resp-card:hover {
+  width: 380px;
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+}
+
+.card-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.4s ease, transform 0.5s ease;
+}
+.default-image { opacity: 1; z-index: 1;}
+.hover-image { opacity: 0; z-index: 2;}
+.resp-card:hover .default-image { opacity: 0; transform: scale(1.05); }
+.resp-card:hover .hover-image { opacity: 1; transform: scale(1.05); }
+
+.card-hover-overlay {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: linear-gradient(to top, rgba(24,24,24,0.95) 0%, rgba(24,24,24,0) 100%);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  text-align: left;
+  z-index: 3;
+}
+.resp-card:hover .card-hover-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-hover-title {
+  color: #fdfdfd;
+  font-size: 22px;
+  line-height: 1.2;
+}
+.strategic-blue, .centered-blue, .innovation-blue-card { color: #696ef0; }
+.excellence-red { color: #ff4632; }
+.design-default, .human-default { color: #fdfdfd; }
+
+.card-hover-text {
+  color: rgba(253, 253, 253, 0.85);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .resp-card {
+    width: 100%;
+    height: 350px;
+  }
+  .resp-card:hover {
+    width: 100%;
+  }
+}
+
+/* ============================================================
+   CTA SECTION
+   ============================================================ */
+.get-in-touch-section {
+  padding: 100px 20px; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  width: 100%;
+}
+.frame-29 {
+  background: #ff4632; 
+  border-radius: 20px; 
+  padding: 60px 40px;
+  max-width: 1000px; 
+  width: 100%; 
+  text-align: center;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 24px;
+}
+.cta-title { 
+  color: #fff; 
+  font-size: clamp(32px, 4vw, 48px); 
+}
+.cta-subtitle {
+  color: #fff; 
+  font-size: 20px; 
+  line-height: 1.5;
+}
+
+/* ============================================================
+   FOOTER (Match Index)
+   ============================================================ */
+.footer {
+  background: linear-gradient(180deg, #181818 69%, #7e7e7e 100%);
+  padding: 80px 20px 40px 20px;
+  display: flex; 
+  justify-content: center;
+  width: 100%;
+}
+.footer-container {
+  width: 100%; 
+  max-width: 1280px; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 60px;
+}
+/* Stack the Navigate section (Heading + Links) vertically */
+.frame-84 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px; 
+}
+
+/* Stack the actual navigation links vertically */
+.frame-82 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; 
+}
+
+/* Override the old bottom margin since flex 'gap' handles spacing now */
+.frame-82 .footer-link {
+  margin-bottom: 0;
+}
+.frame-89 {
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: space-between; 
+  gap: 40px; 
+  width: 100%;
+}
+.logo2 img { max-width: 200px; }
+.logo-2 {
+  padding: 0px 5px 0px 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  height: 67.95px;
+  position: relative;
+}
+.navigate, .follow, .location, .for-inquiries { 
+  color: rgba(255,255,255,0.7); 
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-weight: 600; 
+  margin-bottom: 16px; 
+  font-size: 18px; 
+}
+.footer-link { 
+  color: #fff; 
+  font-family: "BeautifullyDeliciousSans-Regular", sans-serif;
+  font-size: 16px; 
+  margin-bottom: 10px; 
+  cursor: pointer; 
+  text-decoration: none;
+  display: inline-block;
+}
+.footer-link:hover { opacity: 0.7; }
+.frame-87, .frame-88, .frame-822, .frame-83 { 
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+  margin-bottom: 12px; 
+}
+.frame-832 { 
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+  border-top: 1px solid rgba(255,255,255,0.2); 
+  padding-top: 20px; 
+}
+._2026-inovo-industrial-design-development { 
+  color: rgba(255,255,255,0.6); 
+  font-family: "BeautifullyDeliciousSans-Regular", sans-serif;
+  font-size: 14px; 
+}
+
+/* ============================================================
+   ANIMATIONS & EFFECTS
+   ============================================================ */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: opacity, transform;
+}
+.reveal-active {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+
+@media (max-width: 768px) {
+  .delay-100, .delay-200 {
+    transition-delay: 50ms !important;
+  }
+}
