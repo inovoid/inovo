@@ -1,6 +1,15 @@
 /* ============================================================
    GLOBAL & LAYOUT RESETS
    ============================================================ */
+   html {
+  scroll-behavior: smooth; /* Enables buttery smooth anchoring/linking */
+}
+
+body {
+  -webkit-overflow-scrolling: touch; /* Enables native momentum scrolling on iOS */
+  overflow-x: hidden; /* Prevents accidental horizontal wobble */
+  overscroll-behavior-x: none;
+}
 .index-page,
 .index-page * {
   box-sizing: border-box;
