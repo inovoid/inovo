@@ -650,3 +650,36 @@ body {
     transition-delay: 50ms !important;
   }
 }
+/* ============================================================
+   MOBILE FIX FOR RESPONSIBILITY CARDS (Touch Devices)
+   ============================================================ */
+@media (max-width: 968px) {
+  .resp-card {
+    width: 100%;
+    height: 350px;
+  }
+  
+  /* Prevent the card from jumping when tapped on mobile */
+  .resp-card:hover {
+    width: 100%;
+    transform: none;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+
+  /* Permanently hide the default image */
+  .resp-card .default-image { 
+    opacity: 0; 
+  }
+  
+  /* Permanently show the hover image */
+  .resp-card .hover-image { 
+    opacity: 1; 
+    transform: scale(1.05); 
+  }
+  
+  /* Permanently show the text overlay */
+  .resp-card .card-hover-overlay { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
