@@ -162,7 +162,7 @@ body {
 /* ============================================================
    MOBILE NAVIGATION CONTROLS
    ============================================================ */
-@media (max-width: 768px) {
+@media (max-width: 375px) {
   .nav-bar { padding: 12px 20px !important; border-radius: 16px; }
   .logo { height: 26px !important; }
   .frame-72 { gap: 12px !important; }
@@ -171,7 +171,7 @@ body {
   .icons, .icons3, #openMenuBtn, #closeMenuBtn { width: 24px !important; height: 24px !important; display: flex; align-items: center; justify-content: center; }
   .frame-19 { display: none !important; }
 }
-@media (max-width: 400px) {
+@media (max-width: 375px) {
   .logo { height: 22px !important; }
   .button2 { padding: 8px 12px !important; }
   .get-in-touch2 { font-size: 12px !important; }
@@ -252,7 +252,7 @@ body {
   padding: 10px 0 0 0;
   box-shadow: 0 12px 32px rgba(0,0,0,0.15);
 }
-@media (max-width: 968px) {
+@media (max-width: 375px) {
   .hero-container { 
     flex-direction: column; 
     text-align: center; 
@@ -277,7 +277,7 @@ body {
   }
 }
 
-@media (max-width: 968px) {
+@media (max-width: 375px) {
   .hero-container { flex-direction: column; text-align: center; }
   .hero-text-col { align-items: center; }
 }
@@ -398,7 +398,7 @@ body {
 .service-card:hover .card-hover { opacity: 1; pointer-events: auto; }
 
 /* Force open hover states on mobile/touch screens */
-@media (max-width: 968px) {
+@media (max-width: 375px) {
   .service-card > img.card-bg-img { opacity: 1; filter: grayscale(1) brightness(0.4); }
   .card-wash { opacity: 0; }
   .service-card::after { opacity: 1; }
@@ -458,7 +458,7 @@ body {
   line-height: 1.6;
 }
 
-@media (max-width: 968px) {
+@media (max-width: 375px) {
   .about-container { flex-direction: column; align-items: center; }
 }
 
@@ -585,7 +585,7 @@ body {
   font-size: 14px; font-weight: 600;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 375px) {
   .large-card .card-image-wrapper, .small-card .card-image-wrapper { height: 350px; }
 }
 
@@ -665,6 +665,6 @@ body {
 .delay-300 { transition-delay: 300ms; }
 .delay-400 { transition-delay: 400ms; }
 
-@media (max-width: 768px) {
+@media (max-width: 375px) {
   .delay-100, .delay-200, .delay-300, .delay-400 { transition-delay: 50ms !important; }
 }
