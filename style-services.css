@@ -1,14 +1,13 @@
 /* ============================================================
    GLOBAL & LAYOUT RESETS
    ============================================================ */
-/* 1. Smooth Scrolling & Mobile Touch Optimization */
 html {
   scroll-behavior: smooth;
 }
 
 body {
   -webkit-overflow-scrolling: touch; 
-  overflow-x: hidden; /* Moved here to prevent horizontal scroll without breaking sticky */
+  overflow-x: hidden; 
   margin: 0;
   padding: 0;
   background: #f5f5f5;
@@ -50,6 +49,8 @@ body {
   left: 50%;
   transform: translateX(-50%) !important;
   z-index: 9999;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 .nav-menu.active {
   display: flex;
@@ -67,7 +68,7 @@ body {
   box-sizing: border-box;
 }
 .nav-bar {
-  background: #fdfdfd;
+  background: rgba(253, 253, 253, 0.9);
   border-radius: 20px;
   padding: 20px 30px;
   display: flex;
@@ -77,24 +78,50 @@ body {
   width: 100%;
   box-sizing: border-box;
   backdrop-filter: blur(16px) saturate(120%);
-  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.35);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.15);
 }
 .nav-menu .nav-bar { border-radius: 20px 20px 0px 0px; }
 .frame-178, .frame-177 { display: flex; flex-direction: row; gap: 10px; align-items: flex-start; justify-content: flex-start; }
 .logo { height: 35px; display: flex; align-items: center; }
 .logo .group { height: 100%; }
-.frame-72 { display: flex; flex-direction: row; gap: 30px; align-items: center; justify-content: flex-start; }
+.frame-72 { 
+  display: flex; 
+  flex-direction: row; 
+  gap: 30px; 
+  align-items: center; 
+  justify-content: flex-end; 
+  flex-shrink: 0;
+}
 .button2 {
-  background: #181818; border-radius: 20px; padding: 16px 30px; display: flex; flex-direction: row;
-  gap: 10px; align-items: center; justify-content: center; box-shadow: 2px 4px 4px 1px rgba(0, 0, 0, 0.3);
-  cursor: pointer; text-decoration: none; transition: transform 0.2s ease, opacity 0.2s ease;
+  background: #181818; 
+  border-radius: 20px; 
+  padding: 16px 30px; 
+  display: flex; 
+  flex-direction: row;
+  gap: 10px; 
+  align-items: center; 
+  justify-content: center; 
+  box-shadow: 2px 4px 4px 1px rgba(0, 0, 0, 0.3);
+  cursor: pointer; 
+  text-decoration: none; 
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .button2:hover { transform: translateY(-2px); opacity: 0.9; }
-.get-in-touch2 { color: #fdfdfd; font-family: "Montserrat-SemiBold", sans-serif; font-size: 20px; line-height: 26px; font-weight: 600; }
+.get-in-touch2 { 
+  color: #fdfdfd; 
+  font-family: "Montserrat-SemiBold", sans-serif; 
+  font-size: 20px; 
+  line-height: 26px; 
+  font-weight: 600; 
+  white-space: nowrap;
+}
 .frame-19 { display: flex; flex-direction: row; gap: 10px; align-items: center; justify-content: flex-start; }
 .icons { display: flex; flex-direction: row; gap: 10px; align-items: center; justify-content: flex-start; }
 .frame-40 {
-  background: rgba(255, 70, 50, 0.9); border-radius: 0px 0px 20px 20px; padding: 40px 30px;
+  background: rgba(255, 70, 50, 0.95); border-radius: 0px 0px 20px 20px; padding: 40px 30px;
   display: flex; flex-direction: column; gap: 40px; align-items: flex-start; width: 100%; box-sizing: border-box;
 }
 .frame-21 {
@@ -106,66 +133,6 @@ body {
 .menu-link { font-size: 32px; color: #fdfdfd; font-weight: 500; cursor: pointer; text-decoration: none; transition: opacity 0.2s ease; }
 .menu-link:hover { opacity: 0.7; }
 
-/* ============================================================
-   MOBILE NAVIGATION CONTROLS
-   ============================================================ */
-@media (max-width: 768px) {
-  /* 1. Control the overall Nav Bar container */
-  .nav-bar {
-    padding: 12px 20px !important; /* Reduces the outer padding */
-    border-radius: 16px; /* Slightly less rounded on mobile */
-  }
-
-  /* 2. Control the Logo */
-  .logo {
-    height: 26px !important; /* Scale down the logo height */
-  }
-
-  /* 3. Control the gap between the Button and the Icons */
-  .frame-72 {
-    gap: 12px !important; /* Brings the button and menu icon closer */
-  }
-
-  /* 4. Control the "Get in touch" Button */
-  .button2 {
-    padding: 10px 16px !important; /* Smaller button padding */
-    border-radius: 12px !important;
-  }
-  .get-in-touch2 {
-    font-size: 14px !important; /* Smaller text inside the button */
-    line-height: 1.2 !important;
-  }
-
-  /* 5. Control the Menu Hamburger/Close Icons */
-  .icons, .icons3, #openMenuBtn, #closeMenuBtn {
-    width: 24px !important; /* Adjust the width of the menu icon */
-    height: 24px !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* Optional: Hide decorative elements on mobile to save space */
-  .frame-19 {
-    display: none !important; /* Hides the extra spacer icon if it takes up too much room */
-  }
-}
-
-/* For extremely small phones (like iPhone SE) */
-@media (max-width: 400px) {
-  .logo {
-    height: 22px !important; /* Even smaller logo */
-  }
-  .button2 {
-    padding: 8px 12px !important;
-  }
-  .get-in-touch2 {
-    font-size: 12px !important;
-  }
-  .frame-72 {
-    gap: 8px !important;
-  }
-}
 
 /* ============================================================
    BUTTONS
@@ -196,7 +163,7 @@ body {
    ============================================================ */
 .services-hero {
   width: 100%;
-  padding: 160px 20px 80px 20px; /* Space for nav */
+  padding: 160px 20px 80px 20px; 
   background: linear-gradient(135deg, #fdfdfd 0%, #f5f5f5 100%);
   display: flex;
   justify-content: center;
@@ -229,7 +196,7 @@ body {
   max-width: 400px;
   height: 2px;
   background: #e5e5e5;
-  margin-left: 20px; /* Matches the left-border look in design */
+  margin-left: 20px; 
 }
 .hero-subtitle {
   color: #464646;
@@ -291,14 +258,6 @@ body {
   bottom: -14px;
   left: -14px;
   border-width: 0 0 2px 2px;
-}
-
-@media (max-width: 968px) {
-  .hero-container {
-    flex-direction: column;
-  }
-  .vertical-label { display: none; }
-  .hero-divider { margin-left: 0; }
 }
 
 /* ============================================================
@@ -523,76 +482,18 @@ body {
   flex-direction: column; 
   gap: 60px;
 }
-/* Stack the Navigate section (Heading + Links) vertically */
-.frame-84 {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px; 
-}
-
-/* Stack the actual navigation links vertically */
-.frame-82 {
-  display: flex;
-  flex-direction: column;
-  gap: 12px; 
-}
-
-/* Override the old bottom margin since flex 'gap' handles spacing now */
-.frame-82 .footer-link {
-  margin-bottom: 0;
-}
-.frame-89 {
-  display: flex; 
-  flex-wrap: wrap; 
-  justify-content: space-between; 
-  gap: 40px; 
-  width: 100%;
-}
+.frame-84 { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+.frame-82 { display: flex; flex-direction: column; gap: 12px; }
+.frame-82 .footer-link { margin-bottom: 0; }
+.frame-89 { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; width: 100%; }
 .logo2 img { max-width: 200px; }
-.logo-2 {
-  padding: 0px 5px 0px 5px;
-  display: flex;
-  flex-direction: column;
-  gap: 13px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-shrink: 0;
-  height: 67.95px;
-  position: relative;
-}
-.navigate, .follow, .location, .for-inquiries { 
-  color: rgba(255,255,255,0.7); 
-  font-weight: 600; 
-  margin-bottom: 16px; 
-  font-size: 18px; 
-}
-.footer-link { 
-  color: #fff; 
-  font-size: 16px; 
-  margin-bottom: 10px; 
-  cursor: pointer; 
-  text-decoration: none;
-  display: inline-block;
-}
+.logo-2 { padding: 0px 5px 0px 5px; display: flex; flex-direction: column; gap: 13px; align-items: flex-start; justify-content: flex-start; flex-shrink: 0; height: 67.95px; position: relative; }
+.navigate, .follow, .location, .for-inquiries { color: rgba(255,255,255,0.7); font-weight: 600; margin-bottom: 16px; font-size: 18px; }
+.footer-link { color: #fff; font-size: 16px; margin-bottom: 10px; cursor: pointer; text-decoration: none; display: inline-block; }
 .footer-link:hover { opacity: 0.7; }
-.frame-87, .frame-88, .frame-822, .frame-83 { 
-  display: flex; 
-  align-items: center; 
-  gap: 10px; 
-  margin-bottom: 12px; 
-}
-.frame-832 { 
-  display: flex; 
-  align-items: center; 
-  gap: 10px; 
-  border-top: 1px solid rgba(255,255,255,0.2); 
-  padding-top: 20px; 
-}
-._2026-inovo-industrial-design-development { 
-  color: rgba(255,255,255,0.6); 
-  font-size: 14px; 
-}
+.frame-87, .frame-88, .frame-822, .frame-83 { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.frame-832 { display: flex; align-items: center; gap: 10px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 20px; }
+._2026-inovo-industrial-design-development { color: rgba(255,255,255,0.6); font-size: 14px; }
 
 /* ============================================================
    ANIMATIONS & EFFECTS
@@ -610,41 +511,72 @@ body {
 .delay-100 { transition-delay: 100ms; }
 .delay-200 { transition-delay: 200ms; }
 
-@media (max-width: 768px) {
-  .delay-100, .delay-200 {
-    transition-delay: 50ms !important;
-  }
-}
+
 /* ============================================================
-   MOBILE FIX FOR HOVER CARDS (Touch Devices)
+   MOBILE RESPONSIVE (768px & Below)
    ============================================================ */
-@media (max-width: 968px) {
-  /* Darken the background image and show the dark gradient overlay */
-  .service-card > img.card-bg-img { 
-    opacity: 1; 
-    filter: grayscale(1) brightness(0.4); 
-  }
-  .service-card::after { 
-    opacity: 1; 
-  }
+@media (max-width: 768px) {
+  /* Navigation Fixes */
+  .fixed-nav-wrapper, .nav-menu { padding: 0 16px !important; } 
+  .nav-bar { padding: 10px 12px !important; border-radius: 16px; gap: 10px; } 
+  .nav-menu .nav-bar { border-radius: 16px 16px 0 0; } 
+  .frame-40 { padding: 24px 16px !important; border-radius: 0 0 16px 16px; } 
+  .menu-link { font-size: 24px; } 
   
-  /* Hide the white wash overlay */
-  .card-wash { 
-    opacity: 0; 
-  }
+  .logo { height: 18px !important; flex-shrink: 1; min-width: 0; }
+  .logo img { max-height: 100%; width: auto; }
   
-  /* Hide the closed state content completely */
-  .card-initial { 
-    opacity: 0; 
-    pointer-events: none; 
-    display: none; 
-  }
+  .frame-72 { gap: 12px !important; align-items: center !important; flex-shrink: 0 !important; }
   
-  /* Permanently show the detailed hover content */
-  .card-hover { 
-    opacity: 1; 
-    pointer-events: auto; 
-    position: relative; 
-    height: 100%; 
+  .button2 { padding: 8px 14px !important; border-radius: 12px !important; }
+  .get-in-touch2 { font-size: 13px !important; line-height: 1 !important; }
+  
+  .frame-19 { display: block !important; height: 22px !important; opacity: 0.3; }
+  
+  .icons, .icons3, #openMenuBtn, #closeMenuBtn { 
+    width: 24px !important; 
+    height: 24px !important; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
   }
+
+  /* Services Hero Reduction */
+  .services-hero { padding: 120px 16px 60px 16px; }
+  .hero-container { flex-direction: column; gap: 40px; }
+  .hero-title { font-size: 36px; }
+  .hero-subtitle { font-size: 16px; }
+  .vertical-label { display: none; }
+  .hero-divider { margin-left: 0; }
+  
+  /* Core Capabilities & Cards Fixes (Touch Support) */
+  .capabilities-section { padding: 60px 16px; }
+  .services-grid { grid-template-columns: 1fr; gap: 20px; }
+  .service-card { height: 420px; }
+  
+  .service-card > img.card-bg-img { opacity: 1; filter: grayscale(1) brightness(0.4); }
+  .service-card::after { opacity: 1; }
+  .card-wash { opacity: 0; }
+  .card-initial { opacity: 0; pointer-events: none; display: none; }
+  .card-hover { opacity: 1; pointer-events: auto; position: relative; height: 100%; padding: 24px; }
+
+  /* Process Section */
+  .process-section { padding: 60px 16px; }
+  .process-grid { grid-template-columns: 1fr; gap: 32px; }
+
+  /* CTA Section */
+  .get-in-touch-section { padding: 60px 16px; }
+  .frame-29 { padding: 40px 20px; gap: 16px; }
+  .cta-title { font-size: 28px; }
+  .cta-subtitle { font-size: 16px; }
+
+  /* Footer Stack */
+  .footer { padding: 60px 16px 30px 16px; }
+  .footer-container { gap: 40px; }
+  .frame-89 { gap: 32px; flex-direction: column; align-items: flex-start; }
+  .logo-2 { height: auto; }
+  .frame-832 { flex-direction: column; align-items: flex-start; text-align: left; gap: 12px; }
+  
+  /* Transition Delays */
+  .delay-100, .delay-200 { transition-delay: 50ms !important; }
 }
