@@ -59,6 +59,9 @@ body {
 /* ============================================================
    NAVIGATION
    ============================================================ */
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
 .nav-menu {
   display: none; 
   width: 100% !important;
@@ -68,6 +71,8 @@ body {
   left: 50%;
   transform: translateX(-50%) !important;
   z-index: 9999;
+  padding: 0 20px; /* FIX: Matches the wrapper padding */
+  box-sizing: border-box;
 }
 .nav-menu.active {
   display: flex;
@@ -85,7 +90,7 @@ body {
   box-sizing: border-box;
 }
 .nav-bar {
-  background: #fdfdfd;
+  background: rgba(253, 253, 253, 0.9);
   border-radius: 20px;
   padding: 20px 30px;
   display: flex;
@@ -95,9 +100,12 @@ body {
   width: 100%;
   box-sizing: border-box;
   backdrop-filter: blur(16px) saturate(120%);
-  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.35);
+  -webkit-backdrop-filter: blur(16px) saturate(120%); /* FIX: Safari support */
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.15); /* FIX: Softened the heavy shadow */
 }
-.nav-menu .nav-bar { border-radius: 20px 20px 0px 0px; }
+.nav-menu .nav-bar { 
+  border-radius: 20px 20px 0px 0px; 
+}
 .frame-178, .frame-177 { display: flex; flex-direction: row; gap: 10px; align-items: flex-start; justify-content: flex-start; }
 .logo { height: 35px; display: flex; align-items: center; }
 .logo .group { height: 100%; }
@@ -120,7 +128,6 @@ body {
   width: fit-content;
 }
 .button2:hover { transform: translateY(-2px); opacity: 0.9; }
-.cta-blue-btn { background: #02066f; }
 
 .get-in-touch2 { 
   color: #fdfdfd; 
@@ -129,30 +136,30 @@ body {
   line-height: 26px; 
   font-weight: 600; 
 }
-.text-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: "Montserrat-SemiBold", sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  transition: gap 0.2s ease;
-  border-bottom: 2px solid;
-  padding-bottom: 4px;
-}
-.text-link:hover { gap: 12px; }
-.text-link::after { content: "→"; font-size: 18px; transition: transform 0.2s; }
-.text-link:hover::after { transform: translateX(4px); }
-
 .frame-19 { display: flex; flex-direction: row; gap: 10px; align-items: center; justify-content: flex-start; }
 .icons { display: flex; flex-direction: row; gap: 10px; align-items: center; justify-content: flex-start; }
 .frame-40 {
-  background: rgba(255, 70, 50, 0.9); border-radius: 0px 0px 20px 20px; padding: 40px 30px;
-  display: flex; flex-direction: column; gap: 40px; align-items: flex-start; width: 100%; box-sizing: border-box;
+  background: rgba(255, 70, 50, 0.95); 
+  border-radius: 0px 0px 20px 20px; 
+  padding: 40px 30px;
+  display: flex; 
+  flex-direction: column; 
+  gap: 40px; 
+  align-items: flex-start; 
+  width: 100%; 
+  box-sizing: border-box;
 }
 .frame-21 {
-  background: #f6f6f6; border-radius: 10px; border: 0.5px solid rgba(70, 70, 70, 0.4); padding: 0px 10px;
-  display: flex; flex-direction: row; gap: 10px; align-items: center; width: 100%; height: 60px;
+  background: #f6f6f6; 
+  border-radius: 10px; 
+  border: 0.5px solid rgba(70, 70, 70, 0.4); 
+  padding: 0px 10px;
+  display: flex; 
+  flex-direction: row; 
+  gap: 10px; 
+  align-items: center; 
+  width: 100%; 
+  height: 60px;
 }
 .search-input { flex: 1; background: transparent; border: none; outline: none; color: #181818; font-size: 20px; }
 .frame-73 { display: flex; flex-direction: row; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: center; width: 100%; }
