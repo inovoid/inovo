@@ -108,7 +108,14 @@ body {
 }
 .logo { height: 35px; display: flex; align-items: center; }
 .logo .group { height: 100%; }
-.frame-72 { display: flex; flex-direction: row; gap: 30px; align-items: center; justify-content: flex-start; }
+.frame-72 { 
+  display: flex; 
+  flex-direction: row; 
+  gap: 30px; 
+  align-items: center; 
+  justify-content: flex-end; 
+  flex-shrink: 0; /* Prevents the group from being squished by the logo */
+}
 
 /* Global Button Styling */
 .button2 {
@@ -125,6 +132,8 @@ body {
   text-decoration: none; 
   transition: transform 0.2s ease, opacity 0.2s ease;
   width: fit-content;
+  white-space: nowrap; /* FIX: Stops text from wrapping on small screens */
+  flex-shrink: 0; /* Keeps the button shape rigid */
 }
 .button2:hover { transform: translateY(-2px); opacity: 0.9; }
 .cta-blue-btn { background: #02066f; }
@@ -135,6 +144,7 @@ body {
   font-size: 20px; 
   line-height: 26px; 
   font-weight: 600; 
+  white-space: nowrap; /* Backup to ensure text stays inline */
 }
 .text-link {
   display: inline-flex;
@@ -600,30 +610,55 @@ body {
 @media (max-width: 768px) {
   /* Navigation Fixes */
   .fixed-nav-wrapper, .nav-menu { padding: 0 16px !important; } 
-  .nav-bar { padding: 10px 16px !important; border-radius: 16px; } 
+  .nav-bar { 
+    padding: 10px 12px !important; /* Slightly tighter horizontal padding */
+    border-radius: 16px; 
+    gap: 10px; /* Forces a minimum space between Logo and Button */
+  } 
   .nav-menu .nav-bar { border-radius: 16px 16px 0 0; } 
   .frame-40 { padding: 24px 16px !important; border-radius: 0 0 16px 16px; } 
   .menu-link { font-size: 24px; } 
   
-  .logo { height: 20px !important; } 
-  .frame-72 { gap: 14px !important; align-items: center !important; }
+  /* Logo */
+  .logo { 
+    height: 18px !important; /* Scaled down just a hair for extra room */
+    flex-shrink: 1; /* Allows logo container to adapt if needed */
+    min-width: 0;
+  }
+  .logo img { max-height: 100%; width: auto; }
   
-  .button2 { padding: 8px 16px !important; border-radius: 12px !important; }
-  .get-in-touch2 { font-size: 13px !important; line-height: 1 !important;}
+  /* Right Side Group */
+  .frame-72 { 
+    gap: 12px !important; /* Perfect breathing room for mobile */
+    align-items: center !important; 
+    flex-shrink: 0 !important;
+  }
   
+  /* Button */
+  .button2 { 
+    padding: 8px 14px !important; 
+    border-radius: 12px !important; 
+  }
+  .get-in-touch2 { 
+    font-size: 13px !important; 
+    line-height: 1 !important;
+  }
+  
+  /* Divider Line */
   .frame-19 { 
     display: block !important; 
-    height: 24px !important;   
+    height: 22px !important;   
     opacity: 0.3;              
   }
   
+  /* Menu Icon */
   .icons, .icons3, #openMenuBtn, #closeMenuBtn { 
-    width: 26px !important; 
-    height: 26px !important; 
+    width: 24px !important; 
+    height: 24px !important; 
     display: flex; 
     align-items: center; 
     justify-content: center; 
-  }
+  } 
 
   /* Hero Section Reduction */
   .index-hero { padding: 120px 16px 60px 16px; } 
