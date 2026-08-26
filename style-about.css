@@ -7,12 +7,13 @@ html {
 
 body {
   -webkit-overflow-scrolling: touch; 
-  overflow-x: hidden; /* Moved here to prevent horizontal scroll without breaking sticky */
+  overflow-x: hidden; 
   margin: 0;
   padding: 0;
   background: #f5f5f5;
 }
-   .about-page,
+
+.about-page,
 .about-page * {
   box-sizing: border-box;
 }
@@ -51,6 +52,8 @@ body {
   left: 50%;
   transform: translateX(-50%) !important;
   z-index: 9999;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 .nav-menu.active {
   display: flex;
@@ -68,7 +71,7 @@ body {
   box-sizing: border-box;
 }
 .nav-bar {
-  background: #fdfdfd;
+  background: rgba(253, 253, 253, 0.9);
   border-radius: 20px;
   padding: 20px 30px;
   display: flex;
@@ -78,24 +81,50 @@ body {
   width: 100%;
   box-sizing: border-box;
   backdrop-filter: blur(16px) saturate(120%);
-  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.35);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.15);
 }
 .nav-menu .nav-bar { border-radius: 20px 20px 0px 0px; }
 .frame-178, .frame-177 { display: flex; flex-direction: row; gap: 10px; align-items: flex-start; justify-content: flex-start; }
 .logo { height: 35px; display: flex; align-items: center; }
 .logo .group { height: 100%; }
-.frame-72 { display: flex; flex-direction: row; gap: 30px; align-items: center; justify-content: flex-start; }
+.frame-72 { 
+  display: flex; 
+  flex-direction: row; 
+  gap: 30px; 
+  align-items: center; 
+  justify-content: flex-end; 
+  flex-shrink: 0;
+}
 .button2 {
-  background: #181818; border-radius: 20px; padding: 16px 30px; display: flex; flex-direction: row;
-  gap: 10px; align-items: center; justify-content: center; box-shadow: 2px 4px 4px 1px rgba(0, 0, 0, 0.3);
-  cursor: pointer; text-decoration: none; transition: transform 0.2s ease, opacity 0.2s ease;
+  background: #181818; 
+  border-radius: 20px; 
+  padding: 16px 30px; 
+  display: flex; 
+  flex-direction: row;
+  gap: 10px; 
+  align-items: center; 
+  justify-content: center; 
+  box-shadow: 2px 4px 4px 1px rgba(0, 0, 0, 0.3);
+  cursor: pointer; 
+  text-decoration: none; 
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .button2:hover { transform: translateY(-2px); opacity: 0.9; }
-.get-in-touch2 { color: #fdfdfd; font-family: "Montserrat-SemiBold", sans-serif; font-size: 20px; line-height: 26px; font-weight: 600; }
+.get-in-touch2 { 
+  color: #fdfdfd; 
+  font-family: "Montserrat-SemiBold", sans-serif; 
+  font-size: 20px; 
+  line-height: 26px; 
+  font-weight: 600; 
+  white-space: nowrap;
+}
 .frame-19 { display: flex; flex-direction: row; gap: 10px; align-items: center; justify-content: flex-start; }
 .icons { display: flex; flex-direction: row; gap: 10px; align-items: center; justify-content: flex-start; }
 .frame-40 {
-  background: rgba(255, 70, 50, 0.9); border-radius: 0px 0px 20px 20px; padding: 40px 30px;
+  background: rgba(255, 70, 50, 0.95); border-radius: 0px 0px 20px 20px; padding: 40px 30px;
   display: flex; flex-direction: column; gap: 40px; align-items: flex-start; width: 100%; box-sizing: border-box;
 }
 .frame-21 {
@@ -106,67 +135,6 @@ body {
 .frame-73 { display: flex; flex-direction: row; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: center; width: 100%; }
 .menu-link { font-size: 32px; color: #fdfdfd; font-weight: 500; cursor: pointer; text-decoration: none; transition: opacity 0.2s ease; }
 .menu-link:hover { opacity: 0.7; }
-
-/* ============================================================
-   MOBILE NAVIGATION CONTROLS
-   ============================================================ */
-@media (max-width: 768px) {
-  /* 1. Control the overall Nav Bar container */
-  .nav-bar {
-    padding: 12px 20px !important; /* Reduces the outer padding */
-    border-radius: 16px; /* Slightly less rounded on mobile */
-  }
-
-  /* 2. Control the Logo */
-  .logo {
-    height: 26px !important; /* Scale down the logo height */
-  }
-
-  /* 3. Control the gap between the Button and the Icons */
-  .frame-72 {
-    gap: 12px !important; /* Brings the button and menu icon closer */
-  }
-
-  /* 4. Control the "Get in touch" Button */
-  .button2 {
-    padding: 10px 16px !important; /* Smaller button padding */
-    border-radius: 12px !important;
-  }
-  .get-in-touch2 {
-    font-size: 14px !important; /* Smaller text inside the button */
-    line-height: 1.2 !important;
-  }
-
-  /* 5. Control the Menu Hamburger/Close Icons */
-  .icons, .icons3, #openMenuBtn, #closeMenuBtn {
-    width: 24px !important; /* Adjust the width of the menu icon */
-    height: 24px !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* Optional: Hide decorative elements on mobile to save space */
-  .frame-19 {
-    display: none !important; /* Hides the extra spacer icon if it takes up too much room */
-  }
-}
-
-/* For extremely small phones (like iPhone SE) */
-@media (max-width: 400px) {
-  .logo {
-    height: 22px !important; /* Even smaller logo */
-  }
-  .button2 {
-    padding: 8px 12px !important;
-  }
-  .get-in-touch2 {
-    font-size: 12px !important;
-  }
-  .frame-72 {
-    gap: 8px !important;
-  }
-}
 
 /* ============================================================
    BUTTONS
@@ -199,8 +167,8 @@ body {
   min-height: 600px;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Aligns vertically to center */
-  align-items: center;     /* Aligns horizontally to center */
+  justify-content: center;
+  align-items: center;
   padding: 80px 20px;
   z-index: 5;
 }
@@ -230,8 +198,8 @@ body {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers children items */
-  text-align: center;  /* Centers the text */
+  align-items: center; 
+  text-align: center; 
   gap: 24px;
 }
 .hero-title {
@@ -253,7 +221,7 @@ body {
 .process-wrapper {
   display: flex;
   flex-direction: row;
-  align-items: flex-start; /* Required for sticky to work cleanly in Flexbox */
+  align-items: flex-start;
   position: relative;
   background: #ffffff;
   width: 100%;
@@ -266,7 +234,7 @@ body {
   width: 50%;
   height: 100vh;
   background: #000;
-  overflow: hidden; /* Prevent child images from bleeding out */
+  overflow: hidden; 
 }
 
 /* Stacking all 3 images */
@@ -321,7 +289,7 @@ body {
   flex-direction: column;
 }
 .content-block {
-  height: 100vh; /* Make each block take full viewport height */
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -360,7 +328,6 @@ body {
   line-height: 1.6;
   margin-bottom: 32px;
 }
-
 .text-link {
   display: inline-flex;
   align-items: center;
@@ -377,16 +344,6 @@ body {
 .text-link:hover::after { transform: translateX(4px); }
 .explore-services-link { color: #ff4632; border-bottom-color: #ff4632; }
 .default-link { color: #ff4632; border-bottom-color: #ff4632; }
-
-/* Responsive adjustments for sticky scroll */
-@media (max-width: 968px) {
-  .process-wrapper { flex-direction: column; }
-  .sticky-left { position: relative; width: 100%; height: 50vh; top: 0; }
-  .scroll-right { width: 100%; }
-  .content-block { height: auto; min-height: 60vh; padding: 60px 20px; justify-content: center; }
-  .text-content { max-width: 100%; text-align: center; }
-  .sticky-label { left: 20px; bottom: 30px; }
-}
 
 /* ============================================================
    RESPONSIBILITY SECTION
@@ -496,16 +453,6 @@ body {
   line-height: 1.5;
 }
 
-@media (max-width: 768px) {
-  .resp-card {
-    width: 100%;
-    height: 350px;
-  }
-  .resp-card:hover {
-    width: 100%;
-  }
-}
-
 /* ============================================================
    CTA SECTION
    ============================================================ */
@@ -555,25 +502,18 @@ body {
   flex-direction: column; 
   gap: 60px;
 }
-/* Stack the Navigate section (Heading + Links) vertically */
 .frame-84 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 16px; 
 }
-
-/* Stack the actual navigation links vertically */
 .frame-82 {
   display: flex;
   flex-direction: column;
   gap: 12px; 
 }
-
-/* Override the old bottom margin since flex 'gap' handles spacing now */
-.frame-82 .footer-link {
-  margin-bottom: 0;
-}
+.frame-82 .footer-link { margin-bottom: 0; }
 .frame-89 {
   display: flex; 
   flex-wrap: wrap; 
@@ -645,95 +585,75 @@ body {
 .delay-100 { transition-delay: 100ms; }
 .delay-200 { transition-delay: 200ms; }
 
+
+/* ============================================================
+   MOBILE RESPONSIVE (768px & Below)
+   ============================================================ */
 @media (max-width: 768px) {
-  .delay-100, .delay-200 {
-    transition-delay: 50ms !important;
-  }
-}
-/* ============================================================
-   MOBILE FIX FOR RESPONSIBILITY CARDS (Touch Devices)
-   ============================================================ */
-@media (max-width: 968px) {
-  .resp-card {
-    width: 100%;
-    height: 350px;
-  }
+  /* Navigation Fixes */
+  .fixed-nav-wrapper, .nav-menu { padding: 0 16px !important; } 
+  .nav-bar { padding: 10px 12px !important; border-radius: 16px; gap: 10px; } 
+  .nav-menu .nav-bar { border-radius: 16px 16px 0 0; } 
+  .frame-40 { padding: 24px 16px !important; border-radius: 0 0 16px 16px; } 
+  .menu-link { font-size: 24px; } 
   
-  /* Prevent the card from jumping when tapped on mobile */
-  .resp-card:hover {
-    width: 100%;
-    transform: none;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  }
-
-  /* Permanently hide the default image */
-  .resp-card .default-image { 
-    opacity: 0; 
-  }
+  .logo { height: 18px !important; flex-shrink: 1; min-width: 0; }
+  .logo img { max-height: 100%; width: auto; }
   
-  /* Permanently show the hover image */
-  .resp-card .hover-image { 
-    opacity: 1; 
-    transform: scale(1.05); 
-  }
+  .frame-72 { gap: 12px !important; align-items: center !important; flex-shrink: 0 !important; }
   
-  /* Permanently show the text overlay */
-  .resp-card .card-hover-overlay { 
-    opacity: 1; 
-    transform: translateY(0); 
-  }
-}
-/* ============================================================
-   MOBILE FIX: STICKY SCROLL SECTION
-   ============================================================ */
-@media (max-width: 968px) {
-  .process-wrapper { 
-    flex-direction: column; 
-  }
+  .button2 { padding: 8px 14px !important; border-radius: 12px !important; }
+  .get-in-touch2 { font-size: 13px !important; line-height: 1 !important; }
   
-  /* Keep the image pinned at the top half of the screen on mobile */
-  .sticky-left { 
-    position: sticky; 
-    top: 80px; /* Sits just below the mobile nav bar */
-    width: 100%; 
-    height: 45vh; 
-    z-index: 1;
-  }
+  .frame-19 { display: block !important; height: 22px !important; opacity: 0.3; }
   
-  /* Strictly hide inactive images to prevent overlap/glitches */
-  .sticky-image {
-    opacity: 0;
-    visibility: hidden;
-  }
-  .sticky-image.active {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .sticky-label { 
-    left: 20px; 
-    bottom: 20px; 
-    font-size: clamp(28px, 6vw, 40px);
-  }
-  .sticky-label span {
-    font-size: 16px;
-  }
-
-  /* Text scrolls in the bottom half */
-  .scroll-right { 
-    width: 100%; 
-    z-index: 2;
-    position: relative;
-    background: #ffffff; /* Prevents seeing the image through the text gap */
-  }
-  .content-block { 
-    height: auto; 
-    min-height: 55vh; 
-    padding: 60px 20px; 
+  .icons, .icons3, #openMenuBtn, #closeMenuBtn { 
+    width: 24px !important; 
+    height: 24px !important; 
+    display: flex; 
+    align-items: center; 
     justify-content: center; 
   }
-  .text-content { 
-    max-width: 100%; 
-    text-align: center; 
-  }
+
+  /* Hero Section Reduction */
+  .about-hero { padding: 120px 16px 60px 16px; min-height: 60vh; }
+  .hero-title { font-size: 40px; }
+  .hero-subtitle { font-size: 16px; }
+
+  /* Sticky Scroll Fix */
+  .process-wrapper { flex-direction: column; }
+  .sticky-left { position: sticky; top: 80px; width: 100%; height: 45vh; z-index: 1; }
+  .sticky-image { opacity: 0; visibility: hidden; }
+  .sticky-image.active { opacity: 1; visibility: visible; }
+  .sticky-label { left: 20px; bottom: 20px; font-size: clamp(28px, 6vw, 40px); }
+  .sticky-label span { font-size: 16px; }
+  
+  .scroll-right { width: 100%; z-index: 2; position: relative; background: #ffffff; }
+  .content-block { height: auto; min-height: 55vh; padding: 60px 20px; justify-content: center; }
+  .text-content { max-width: 100%; text-align: center; }
+
+  /* Responsibility Section Fixes */
+  .responsibility-section { padding: 60px 16px; }
+  .resp-card { width: 100%; height: 350px; }
+  
+  .resp-card:hover { width: 100%; transform: none; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+  .resp-card .default-image { opacity: 0; }
+  .resp-card .hover-image { opacity: 1; transform: scale(1.05); }
+  .resp-card .card-hover-overlay { opacity: 1; transform: translateY(0); }
+
+  /* CTA Section */
+  .get-in-touch-section { padding: 60px 16px; }
+  .frame-29 { padding: 40px 20px; gap: 16px; }
+  .cta-title { font-size: 28px; }
+  .cta-subtitle { font-size: 16px; }
+
+  /* Footer Stack */
+  .footer { padding: 60px 16px 30px 16px; }
+  .footer-container { gap: 40px; }
+  .frame-89 { gap: 32px; flex-direction: column; align-items: flex-start; }
+  .logo-2 { height: auto; }
+  .frame-832 { flex-direction: column; align-items: flex-start; text-align: left; gap: 12px; }
+  
+  /* Transition Delays */
+  .delay-100, .delay-200 { transition-delay: 50ms !important; }
 }
