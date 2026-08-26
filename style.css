@@ -2,12 +2,12 @@
    GLOBAL & LAYOUT RESETS
    ============================================================ */
 html {
-  scroll-behavior: smooth; /* Enables buttery smooth anchoring/linking */
+  scroll-behavior: smooth; 
 }
 
 body {
-  -webkit-overflow-scrolling: touch; /* Enables native momentum scrolling on iOS */
-  overflow-x: hidden; /* Prevents accidental horizontal wobble */
+  -webkit-overflow-scrolling: touch; 
+  overflow-x: hidden; 
   overscroll-behavior-x: none;
   background: #f6f6f6;
 }
@@ -595,9 +595,9 @@ body {
 
 
 /* ============================================================
-   MOBILE RESPONSIVE (375px & Below)
+   MOBILE RESPONSIVE (768px & Below)
    ============================================================ */
-@media (max-width: 375px) {
+@media (max-width: 768px) {
   /* Navigation Fixes */
   .fixed-nav-wrapper, .nav-menu { padding: 0 16px !important; } 
   .nav-bar { padding: 10px 16px !important; border-radius: 16px; } 
